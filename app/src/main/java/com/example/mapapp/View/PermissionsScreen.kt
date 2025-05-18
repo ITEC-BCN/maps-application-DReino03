@@ -32,5 +32,4 @@ fun PermissionsScreen(onPermissionGranted: () -> Unit) {
         )
     }
 
-    // Puedes mostrar una pantalla de carga o información adicional aquí si lo deseas
 }

@@ -8,10 +8,12 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.mapapp.View.LoginScreen
 import com.example.mapapp.View.MapsScreen
 import com.example.mapapp.View.MarkerDetailScreen
 import com.example.mapapp.View.MarkersListScreen
 import com.example.mapapp.View.PermissionsScreen
+import com.example.mapapp.View.SplashScreen
 import com.example.mapapp.ViewModel.MapViewModel
 import com.example.myapplication.Models.Nav.Routes
 
@@ -22,9 +24,11 @@ fun NavigationWrapper(navController: NavHostController, modifier: Modifier, view
         navController = navController,
         startDestination = Routes.PermissionsScreen.route
     ) {
+        composable("login")  { LoginScreen(navController)  }
+        composable("splash") { SplashScreen(navController) }
         composable(Routes.PermissionsScreen.route) {
             PermissionsScreen {
-                navController.navigate(Routes.MapScreen.route) {
+                navController.navigate("login") {
                     popUpTo(Routes.PermissionsScreen.route) { inclusive = true }
                 }
             }
